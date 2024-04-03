@@ -22,6 +22,9 @@ public class Constants {
         public static int rearRightDriveMotor=4;
         public static int leftPivot = 5;
         public static int rightPivot = 6;
+        public static int leftShooter=7;
+        public static int rightShooter=8;
+        
         
     }
     public static class Control {

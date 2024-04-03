@@ -18,41 +18,19 @@ public class Shooter extends SubsystemBase {
 
   
     public Shooter() {
-        this.ShooterMotor1 = new CANSparkMax(7, MotorType.kBrushless);
-        this.ShooterMotor2 = new CANSparkMax(8, MotorType.kBrushless);
+        this.ShooterMotor1 = new CANSparkMax(Constants.CanID.leftShooter, MotorType.kBrushless);
+        this.ShooterMotor2 = new CANSparkMax(Constants.CanID.rightShooter, MotorType.kBrushless);
         ShooterMotor2.follow(ShooterMotor1,true);
         this.ShooterMotor1.setInverted(true);
         this.ShooterMotor1.burnFlash();
         this.ShooterMotor2.burnFlash();
     }
 
-    public void ShooterMotor1Forward() {
-        this.ShooterMotor1.set(Constants.Subsystems.Shooter.kPOWER);
+    public void ShooterPower(double power)) {
+        this.ShooterMotor1.set(power);
     }
-
-    public void ShooterMotor1Backward() {
-        this.ShooterMotor1.set(-Constants.Subsystems.Shooter.kPOWER);
-    }
-
+    
     public void ShooterMotor1Stop() {
         this.ShooterMotor1.stopMotor();
     }
-
-    public void ShooterMotor1ForwardAuto(double power) {
-        this.ShooterMotor1.set(power);
-    }
-
-    public void ShooterMotor1BackwardAuto(double power) {
-        this.ShooterMotor1.set(-power);
-    }
-    
-    public void ShooterMotor1ForwardMid() {
-        this.ShooterMotor1.set(0.6);
-    }
-
-    public void ShooterMotor1ForwardWeaker() {
-        this.ShooterMotor1.set(0.5);
-    }
-
-
 }

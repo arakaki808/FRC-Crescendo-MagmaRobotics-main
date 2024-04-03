@@ -117,20 +117,18 @@ public class RobotContainer {
      */
     private void configureBindings() {
         // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-        this.buttonY.onTrue(new ShooterForward(this.Shooter)).onFalse(new ShooterStop(this.Shooter));
-        this.buttonX.onTrue(new ShooterBackward(this.Shooter)).onFalse(new ShooterStop(this.Shooter));
+        this.buttonY.onTrue(new setShooter(this.Shooter,Constants.Shooter.kPOWER)).onFalse(new ShooterStop(this.Shooter));
+        this.buttonX.onTrue(new setShooter(this.Shooter,-Constants.Shooter.kPOWER)).onFalse(new ShooterStop(this.Shooter));
         this.rightBumper.onTrue(new IntakeForward(this.Intake)).onFalse(new IntakeStop(this.Intake));
         this.leftBumper.onTrue(new IntakeBackward(this.Intake)).onFalse(new IntakeStop(this.Intake));
         // this.buttonA.onTrue(new IntakeForwardAuto(this.Intake, 1000, 0.5).andThen(new IntakeBackwardAuto(this.Intake, 1000, 0.5).andThen(new ShooterForwardAuto(this.Shooter, this.Shooter, 1000, 0.5)))).onFalse(new ParallelCommandGroup(new IntakeStop(this.Intake),new ShooterStop(this.Shooter)));
         this.upPOV.onTrue(new IndexerForward(this.Indexer)).onFalse(new IndexerStop(this.Indexer));
         this.downPOV.onTrue(new IndexerBackward(this.Indexer)).onFalse(new IndexerStop(this.Indexer));
-        this.buttonA.onTrue(new ShooterWeak(this.Shooter)).onFalse(new ShooterStop(this.Shooter));
-        this.buttonB.onTrue(new ShooterMid(this.Shooter)).onFalse(new ShooterStop(this.Shooter));
         //this.driverRightBumper.onTrue(new DriveTrainCommandSlower(this.driveTrain, this.driverController)).onFalse(new DriveTrainCommand(this.driveTrain, this.driverController));
+        
         this.driverButtonA.onTrue(Rotator.setArmGoalCommand(Constants.ArmConstants.kHome));
-
-        // Move the arm to neutral position when the 'B' button is pressed.
         this.driverButtonB.onTrue(Rotator.setArmGoalCommand(Constants.ArmConstants.kSpeaker));
+
         testController.a().onTrue(new Rotate(driveTrain, 0.5, 180));
         testController.b().onTrue(new IndexerForwardAuto(Indexer, 1000, 1)).onFalse(new IndexerStop(Indexer));
         testController.x().onTrue(new IndexerBackward(Indexer)).onFalse(new IndexerStop(Indexer));
