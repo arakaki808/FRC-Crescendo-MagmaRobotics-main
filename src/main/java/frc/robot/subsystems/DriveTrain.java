@@ -38,10 +38,10 @@ public class DriveTrain extends SubsystemBase {
 
     public DriveTrain() {
 
-        this.frontLeftDriveMotor = new CANSparkMax(1, MotorType.kBrushless);
-        this.rearLeftDriveMotor = new CANSparkMax(2, MotorType.kBrushless);
-        this.frontRightDriveMotor = new CANSparkMax(3, MotorType.kBrushless);
-        this.rearRightDriveMotor = new CANSparkMax(4, MotorType.kBrushless);
+        this.frontLeftDriveMotor = new CANSparkMax(Constants.CanID.frontLeftDriveMotor, MotorType.kBrushless);
+        this.rearLeftDriveMotor = new CANSparkMax(Constants.CanID.rearLeftDriveMotor, MotorType.kBrushless);
+        this.frontRightDriveMotor = new CANSparkMax(Constants.CanID.frontRightDriveMotor, MotorType.kBrushless);
+        this.rearRightDriveMotor = new CANSparkMax(Constants.CanID.rearRightDriveMotor, MotorType.kBrushless);
 
 
         this.frontLeftDriveMotor.restoreFactoryDefaults();

@@ -22,10 +22,10 @@ import com.revrobotics.SparkRelativeEncoder;
 /** A robot arm subsystem that moves with a motion profile. */
 public class Rotator extends TrapezoidProfileSubsystem {
   private final CANSparkMax m_leftmotor =
-      new CANSparkMax(Constants.ArmConstants.kLeftMotorPort,MotorType.kBrushless);
+      new CANSparkMax(Constants.CanID.leftPivot,MotorType.kBrushless);
   
   private final CANSparkMax m_rightmotor =
-      new CANSparkMax(Constants.ArmConstants.kRightMotorPort,MotorType.kBrushless);
+      new CANSparkMax(Constants.CanID.rightPivot,MotorType.kBrushless);
   
   private final ArmFeedforward m_feedforward =
       new ArmFeedforward(

@@ -15,7 +15,15 @@ package frc.robot;
  */
 public class Constants {
 
-
+    public static class CanID{
+        public static int frontLeftDriveMotor=1;
+        public static int frontRightDriveMotor=2;
+        public static int rearLeftDriveMotor=3;
+        public static int rearRightDriveMotor=4;
+        public static int leftPivot = 5;
+        public static int rightPivot = 6;
+        
+    }
     public static class Control {
 
         public static class ControllerPort {
@@ -72,8 +80,7 @@ public class Constants {
 
 
     public static final class ArmConstants {
-        public static int kLeftMotorPort = 5;
-        public static int kRightMotorPort = 6;
+ 
     
         
     
